@@ -103,6 +103,7 @@ Always separate a **trend recommendation** from a **downloadable master recordin
 
 - Ask whether the creator wants a downloadable music bed. Find a track from a source that explicitly permits the intended commercial/social use. Check the license, attribution, territory, duration, and platform limits; record the exact URL and license evidence.
 - Prefer the source's official download button. `yt-dlp` is only for a source whose terms explicitly authorize third-party downloading and whose license permits this exact use. Never use it to extract music from TikTok/Instagram, bypass access controls, or ignore a platform's download restrictions. Do not infer permission from an open license alone; confirm both the platform's download terms and the asset license. If either is unclear, use the official download route or a different track.
+- If `yt-dlp` or `ffmpeg` is missing, link to the official [yt-dlp installation guide](https://github.com/yt-dlp/yt-dlp#installation) and [FFmpeg download page](https://ffmpeg.org/download.html). Ask before installing system packages. Don't install from an unverified binary mirror.
 - If approved and `yt-dlp` plus `ffmpeg` are installed, download one authorized audio source and retain its metadata for provenance:
   ```bash
   yt-dlp --no-playlist --extract-audio --audio-format mp3 --write-info-json -o "./assets/audio/%(title).150B-%(id)s.%(ext)s" "<AUTHORIZED_AUDIO_URL>"
@@ -145,6 +146,7 @@ Do not call the result finished until all checks below have evidence:
 ## Repeatability rules
 
 - Each run begins from a fresh `get_timeline()` and `get_media()`; use deltas returned by mutations and refresh state after failures or outside edits.
-- Store one canonical recipe per series. Keep constants (canvas, caption style, track roles, recurring transitions) in one place; derive variable timings and footage selections from the new script/reference.
+- Store one canonical recipe per series. On the first edit, record the agreed settings and treatment. On later episodes, treat those values as locked: do not restyle, change track order, caption behavior, transition grammar, music/SFX policy, or delivery shape without the creator's instruction. Change only the content-specific source mapping, transcript, and beat timings. Mark missing-source substitutions explicitly instead of improvising silently.
+- Keep constants (canvas, caption style, track roles, recurring transitions, audio rules) in one place; derive variable timings and footage selections from the new script/reference. Record the recipe revision used for each edit.
 - Never apply the template by blindly replaying old IDs or frame positions. Re-map source footage and recalculate frames at the current project fps.
 - Before final delivery, compare the edit to both the recipe and the new reference breakdown. Explain any intentional deviation.

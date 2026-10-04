@@ -11,6 +11,8 @@ Give the agent this folder or the link to `SKILL.md`, then ask it to follow the 
 - A browser/search tool to discover references and verify current asset licenses and trend reports. Instagram may limit access; provide a screen recording if the reference cannot be viewed publicly.
 - For a downloaded licensed music/SFX file, an authorized download source and local `ffmpeg`; `yt-dlp` is optional and only used when the source explicitly permits it.
 
+Install missing download tools only when needed, using the [official yt-dlp instructions](https://github.com/yt-dlp/yt-dlp#installation) and [FFmpeg download page](https://ffmpeg.org/download.html). The skill asks before system package installation.
+
 The skill does not require a particular model or vendor. Any agent must be able to read the `SKILL.md`, browse when needed, and operate Palmier or document the setup for you.
 
 ## Set up Palmier and the agent
